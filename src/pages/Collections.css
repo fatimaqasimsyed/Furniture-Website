@@ -1,0 +1,186 @@
+.collections-page {
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.collections-hero {
+  position: relative;
+  height: 50vh;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.collections-hero__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.collections-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collections-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.collections-hero__content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.collections-hero__eyebrow {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C8A96A;
+  margin-bottom: 12px;
+}
+
+.collections-hero__content h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 12px;
+}
+
+.collections-hero__content p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.75);
+}
+
+/* Grid */
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.collection-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: var(--transition);
+}
+
+.collection-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Remove wide override — all cards equal */
+.collection-card--wide {
+  grid-column: span 1;
+}
+
+.collection-card__img {
+  position: absolute;
+  inset: 0;
+}
+
+.collection-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.collection-card:hover .collection-card__img img {
+  transform: scale(1.05);
+}
+
+.collection-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+}
+
+.collection-card__content {
+  position: relative;
+  z-index: 2;
+  padding: 32px;
+  color: white;
+}
+
+.collection-card__tag {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.collection-card__content h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.collection-card__subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.collection-card__desc {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.collection-card:hover .collection-card__desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.collection-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #C8A96A;
+  letter-spacing: 0.5px;
+  transition: gap 0.2s ease;
+}
+
+.collection-card__cta:hover {
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .collections-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .collections-grid { grid-template-columns: 1fr; gap: 16px; }
+  .collection-card { min-height: 300px; }
+  .collection-card__content { padding: 20px; }
+  .collection-card__content h2 { font-size: 1.3rem; }
+  .collections-hero { height: 40vh; min-height: 260px; margin-bottom: 40px; }
+}
