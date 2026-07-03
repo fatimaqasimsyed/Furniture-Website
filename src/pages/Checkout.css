@@ -923,3 +923,162 @@
     gap: 12px;
   }
 }
+
+
+/* Checkout Inquiry Page */
+.checkout-inquiry {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.checkout-inquiry__icon {
+  color: #10b981;
+  margin: 0 auto 24px;
+}
+
+.checkout-inquiry h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.checkout-inquiry__desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkout-inquiry__items {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin: 40px 0;
+  text-align: left;
+}
+
+.checkout-inquiry__items h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.checkout-inquiry__items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checkout-inquiry__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.checkout-inquiry__item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.checkout-inquiry__item div {
+  flex: 1;
+}
+
+.checkout-inquiry__item h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.checkout-inquiry__item p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.checkout-inquiry__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.checkout-inquiry__actions .btn-primary,
+.checkout-inquiry__actions .btn-outline {
+  min-width: 180px;
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+
+.checkout-inquiry__back {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.checkout-inquiry__back:hover {
+  color: var(--accent);
+}
+
+/* Responsive for Inquiry Page */
+@media (max-width: 768px) {
+  .checkout-inquiry {
+    padding: 40px 20px;
+  }
+
+  .checkout-inquiry h1 {
+    font-size: 2rem;
+  }
+
+  .checkout-inquiry__desc {
+    font-size: 0.95rem;
+  }
+
+  .checkout-inquiry__items {
+    padding: 24px 16px;
+  }
+
+  .checkout-inquiry__item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .checkout-inquiry__item img {
+    width: 100%;
+    height: 180px;
+    max-width: 280px;
+  }
+
+  .checkout-inquiry__actions {
+    flex-direction: column;
+  }
+
+  .checkout-inquiry__actions .btn-primary,
+  .checkout-inquiry__actions .btn-outline {
+    width: 100%;
+  }
+}
