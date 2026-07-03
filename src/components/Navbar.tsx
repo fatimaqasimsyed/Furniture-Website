@@ -35,12 +35,15 @@ export default function Navbar() {
   };
 
   const shopCategories = [
-    { name: 'Sofas', slug: 'sofas' },
+    { name: 'Sofa Sets', slug: 'sofa-sets' },
+    { name: 'Single Sofas', slug: 'single-sofas' },
     { name: 'Beds', slug: 'beds' },
-    { name: 'Dining', slug: 'dining' },
+    { name: 'Dining Tables', slug: 'tables' },
     { name: 'Office', slug: 'office' },
     { name: 'Storage', slug: 'storage' },
-    { name: 'Decor', slug: 'decor' },
+    { name: 'Bedside Tables', slug: 'bedside-tables' },
+    { name: 'Chairs', slug: 'chairs' },
+    { name: 'Consoles', slug: 'consoles' },
   ];
 
   return (
