@@ -8,31 +8,31 @@
 }
 
 :root {
-  --bg: #FAF8F5;
-  --bg-dark: #2A1810;
-  --text-primary: #4A2C1A;
-  --text-secondary: #8B6F47;
-  --accent: #D87E3A;
-  --accent-dark: #B85F1F;
+  --bg: #FFFFFF;
+  --bg-dark: #F8F9FA;
+  --text-primary: #2C3E50;
+  --text-secondary: #6C757D;
+  --accent: #5B9BD5;
+  --accent-dark: #4A7FB8;
   --white: #ffffff;
-  --border: #E8DED0;
-  --card-bg: #ffffff;
-  --shadow: 0 4px 24px rgba(216, 126, 58, 0.12);
-  --shadow-hover: 0 12px 40px rgba(216, 126, 58, 0.25);
+  --border: #E5E7EB;
+  --card-bg: #FAFBFC;
+  --shadow: 0 4px 24px rgba(91, 155, 213, 0.08);
+  --shadow-hover: 0 12px 40px rgba(91, 155, 213, 0.15);
   --radius: 16px;
   --radius-sm: 8px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="dark"] {
-  --bg: #1A1108;
-  --bg-dark: #0F0805;
-  --text-primary: #F5E6D3;
-  --text-secondary: #C4A574;
-  --border: #3A2A1A;
-  --card-bg: #2A1810;
-  --shadow: 0 4px 24px rgba(0,0,0,0.5);
-  --shadow-hover: 0 12px 40px rgba(0,0,0,0.7);
+  --bg: #F5F5F5;
+  --bg-dark: #EEEEEE;
+  --text-primary: #2C3E50;
+  --text-secondary: #6C757D;
+  --border: #E0E0E0;
+  --card-bg: #FFFFFF;
+  --shadow: 0 4px 24px rgba(0,0,0,0.05);
+  --shadow-hover: 0 12px 40px rgba(0,0,0,0.1);
 }
 
 html { scroll-behavior: smooth; }
@@ -128,7 +128,7 @@ input, select, textarea { font-family: 'Inter', sans-serif; }
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(216, 126, 58, 0.3);
+  box-shadow: 0 4px 15px rgba(91, 155, 213, 0.2);
 }
 
 .btn-primary::before {
@@ -149,12 +149,12 @@ input, select, textarea { font-family: 'Inter', sans-serif; }
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(216, 126, 58, 0.5);
+  box-shadow: 0 8px 25px rgba(91, 155, 213, 0.35);
 }
 
 .btn-primary:active {
   transform: translateY(0);
-  box-shadow: 0 4px 15px rgba(216, 126, 58, 0.4);
+  box-shadow: 0 4px 15px rgba(91, 155, 213, 0.25);
 }
 
 .btn-outline {
@@ -275,7 +275,7 @@ input, select, textarea { font-family: 'Inter', sans-serif; }
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(216, 126, 58, 0.45);
+  box-shadow: 0 4px 16px rgba(91, 155, 213, 0.3);
   transition: var(--transition);
 }
 

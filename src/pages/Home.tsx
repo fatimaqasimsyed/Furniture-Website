@@ -12,9 +12,9 @@ import './Home.css';
 const BASE = import.meta.env.BASE_URL;
 
 const HERO_IMAGES = [
+  `${BASE}images/hero/hero_1.png`,
   `${BASE}Minimal Furniture.png`,
   `${BASE}Minimal Furniture (1).png`,
-  `${BASE}images/hero/hero_1.png`,
 ];
 
 const TESTIMONIALS = [
