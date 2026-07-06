@@ -12,8 +12,8 @@ dist
 dist-ssr
 *.local
 
-# Environment variables
-.env
+# Environment variables (keep .env but ignore others)
+# .env (commented out to allow deployment)
 .env.local
 .env.production
 

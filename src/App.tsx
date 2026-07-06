@@ -12,8 +12,8 @@ import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import CheckoutSuccess from './pages/CheckoutSuccess';
 import Wishlist from './pages/Wishlist';
-import Collections from './pages/Collections';
 import Lookbook from './pages/Lookbook';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -26,8 +26,8 @@ const PAGE_TITLES: Record<string, string> = {
   '/shop': 'Shop | The Furniture Gallery',
   '/cart': 'Cart | The Furniture Gallery',
   '/checkout': 'Checkout | The Furniture Gallery',
+  '/checkout/success': 'Order Confirmed | The Furniture Gallery',
   '/wishlist': 'Wishlist | The Furniture Gallery',
-  '/collections': 'Collections | The Furniture Gallery',
   '/lookbook': 'Gallery | The Furniture Gallery',
   '/about': 'About Us | The Furniture Gallery',
   '/contact': 'Contact | The Furniture Gallery',
@@ -81,8 +81,8 @@ function AppLayout() {
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/success" element={<CheckoutSuccess />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/collections" element={<Collections />} />
           <Route path="/lookbook" element={<Lookbook />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

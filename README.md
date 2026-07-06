@@ -12,6 +12,7 @@ The Furniture Gallery is a trusted furniture business located at Seher Commercia
 - **Made-to-Order**: All furniture is custom-made according to customer requirements
 - **Contact-Based Pricing**: Customers contact for personalized quotes
 - **Custom Orders**: Support for customization requests and specifications
+- **Smart Inquiry System**: Streamlined checkout process with pre-filled WhatsApp messages
 
 ### Core Features
 - 📱 Fully responsive design (mobile, tablet, desktop)
@@ -19,7 +20,9 @@ The Furniture Gallery is a trusted furniture business located at Seher Commercia
 - 🛍️ Product catalog with categories and filtering
 - 🔍 Search functionality
 - ❤️ Wishlist system
-- 🛒 Selection cart (inquiry-based, not checkout)
+- 🛒 Smart inquiry cart with customer details form
+- 📝 Order reference generation system
+- 💬 Pre-filled WhatsApp contact with order details
 - 📸 Image galleries and lookbook
 - 📞 Multiple contact methods (Phone, WhatsApp, Contact Form)
 - 🌙 Dark mode support
@@ -86,6 +89,43 @@ src/
 - 📷 Instagram: [thefurnituregallerykarachi](https://www.instagram.com/thefurnituregallerykarachi/)
 
 ## 🎯 Key Business Features
+
+### Improved Checkout Process
+
+The website features a professional inquiry-based checkout system:
+
+**Customer Journey:**
+1. **Add Products to Cart**: Browse and select furniture items
+2. **Proceed to Checkout**: Fill comprehensive inquiry form
+3. **Submit Details**: Provide contact info, delivery address, and customization notes
+4. **Get Order Reference**: Receive unique order reference number (e.g., TFG-20260706-001)
+5. **Choose Contact Method**: 
+   - 💬 WhatsApp with pre-filled message
+   - 📞 Direct phone call
+   - 📧 Email inquiry
+6. **Receive Quote**: Get personalized quote within 24 hours
+7. **Confirm Order**: Approve quote and proceed with payment
+
+**Checkout Form Includes:**
+- Customer name, phone, email
+- City and complete delivery address
+- Per-product customization notes
+- General order notes
+- Preferred contact method selection
+
+**Pre-filled WhatsApp Message:**
+When customer submits inquiry, they can send a pre-formatted WhatsApp message containing:
+- Order reference number
+- Customer details
+- Delivery location
+- All selected products with quantities
+- Customization notes
+- Request for quote with delivery charges
+
+**Email Notifications:**
+- Customer receives confirmation email with order details
+- You receive structured inquiry with all information
+- Both emails include order reference number
 
 ### No Direct Pricing
 - Products display "Made to Order" instead of prices

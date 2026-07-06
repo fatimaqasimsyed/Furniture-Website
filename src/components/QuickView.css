@@ -158,6 +158,15 @@
   line-height: 1.2;
 }
 
+.quickview__sku {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  margin-top: -8px;
+}
+
 .quickview__rating {
   display: flex;
   align-items: center;

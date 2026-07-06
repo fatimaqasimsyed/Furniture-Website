@@ -137,6 +137,15 @@
   color: var(--accent);
 }
 
+.cart-page__item-sku {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  color: var(--accent) !important;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px !important;
+}
+
 .cart-page__item-info p {
   font-size: 0.8rem;
   color: var(--text-secondary);

@@ -40,7 +40,7 @@ export default function Lookbook() {
     <div className="lookbook-page">
       {/* Hero */}
       <div className="lookbook-hero">
-        <img src={`${import.meta.env.BASE_URL}images/about-cta.jpg`} alt="Lookbook hero" />
+        <img src={`${import.meta.env.BASE_URL}Minimal Furniture (3).png`} alt="Lookbook hero" />
         <div className="lookbook-hero__overlay" />
         <motion.div
           className="lookbook-hero__content container"

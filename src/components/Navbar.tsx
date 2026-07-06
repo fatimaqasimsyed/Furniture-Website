@@ -79,9 +79,9 @@ export default function Navbar() {
                 </div>
               )}
             </li>
-            <li><Link to="/collections" className={location.pathname === '/collections' ? 'active' : ''}>Collections</Link></li>
             <li><Link to="/lookbook" className={location.pathname === '/lookbook' ? 'active' : ''}>Gallery</Link></li>
             <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>About</Link></li>
+            <li><Link to="/shipping-policies" className={location.pathname === '/shipping-policies' ? 'active' : ''}>Shipping</Link></li>
             <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link></li>
           </ul>
 
@@ -132,7 +132,7 @@ export default function Navbar() {
               <Search size={18} />
               <input
                 type="text"
-                placeholder="Search furniture, styles, materials..."
+                placeholder="Search by name, SKU, category, or material..."
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 autoFocus
@@ -153,9 +153,9 @@ export default function Navbar() {
                 {cat.name}
               </Link>
             ))}
-            <Link to="/collections">Collections</Link>
             <Link to="/lookbook">Gallery</Link>
             <Link to="/about">About</Link>
+            <Link to="/shipping-policies">Shipping</Link>
             <Link to="/contact">Contact</Link>
           </div>
         )}

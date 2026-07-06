@@ -58,6 +58,7 @@ export default function Wishlist() {
                     <Link to={`/product/${product.id}`}>
                       <h3>{product.name}</h3>
                     </Link>
+                    <p className="wishlist-card__sku">SKU: {product.sku}</p>
                     <p className="wishlist-card__material">{product.material}</p>
                     <div className="wishlist-card__price-row">
                       <span className="wishlist-card__made-to-order">Made to Order</span>

@@ -68,6 +68,7 @@ export default function CartDrawer() {
                   />
                   <div className="cart-item__info">
                     <h4>{item.product.name}</h4>
+                    <p className="cart-item__sku">SKU: {item.product.sku}</p>
                     <p className="cart-item__category">{item.product.category}</p>
                     {item.selectedColor && (
                       <span

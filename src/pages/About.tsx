@@ -21,7 +21,7 @@ export default function About() {
       {/* Hero */}
       <div className="about-hero">
         <div className="about-hero__bg">
-          <img src={`${import.meta.env.BASE_URL}Furniture Hero Image.png`} alt="" />
+          <img src={`${import.meta.env.BASE_URL}Minimal Furniture (6).png`} alt="" />
           <div className="about-hero__overlay" />
         </div>
         <motion.div
@@ -125,7 +125,7 @@ export default function About() {
       {/* CTA */}
       <section className="about-cta">
         <div className="about-cta__bg">
-          <img src={`${import.meta.env.BASE_URL}images/about-cta.jpg`} alt="" />
+          <img src={`${import.meta.env.BASE_URL}Minimal Furniture (9).png`} alt="" />
           <div className="about-cta__overlay" />
         </div>
         <motion.div
@@ -139,7 +139,7 @@ export default function About() {
           <p>Explore our full collection and find the perfect pieces for your home.</p>
           <div className="about-cta__btns">
             <Link to="/shop" className="btn-primary">Shop Now <ArrowRight size={16} /></Link>
-            <Link to="/contact" className="btn-outline-white">Contact Us</Link>
+            <Link to="/contact" className="btn-outline">Contact Us</Link>
           </div>
         </motion.div>
       </section>

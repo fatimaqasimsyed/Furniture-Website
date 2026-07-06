@@ -77,6 +77,7 @@ export default function QuickView({ product, onClose }: Props) {
           <div className="quickview__info">
             <p className="quickview__category">{product.category}</p>
             <h2 className="quickview__name">{product.name}</h2>
+            <p className="quickview__sku">SKU: {product.sku}</p>
 
             <div className="quickview__price">
               <span className="quickview__made-to-order">Made to Order</span>

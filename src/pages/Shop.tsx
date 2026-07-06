@@ -47,11 +47,15 @@ export default function Shop() {
       result = result.filter(p => p.categorySlug === filters.category);
     }
     if (filters.search) {
-      const q = filters.search.toLowerCase();
+      let q = filters.search.toLowerCase();
+      // Strip "sku:" prefix if present to allow searching "SKU: BS01" or "sku: bs01"
+      q = q.replace(/^sku:\s*/i, '');
+      
       result = result.filter(p =>
         p.name.toLowerCase().includes(q) ||
         p.category.toLowerCase().includes(q) ||
         p.description.toLowerCase().includes(q) ||
+        p.sku.toLowerCase().includes(q) ||
         p.tags.some(t => t.includes(q))
       );
     }

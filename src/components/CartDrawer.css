@@ -150,6 +150,15 @@
   text-overflow: ellipsis;
 }
 
+.cart-item__sku {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
 .cart-item__category {
   font-size: 0.75rem;
   color: var(--text-secondary);
@@ -259,6 +268,19 @@
   font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
+}
+
+.cart-drawer__made-to-order {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(200, 169, 106, 0.1);
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1.5px solid var(--accent);
+  width: 100%;
+  text-align: center;
 }
 
 .cart-drawer__shipping {

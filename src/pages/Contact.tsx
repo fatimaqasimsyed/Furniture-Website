@@ -16,30 +16,33 @@ export default function Contact() {
     setIsSubmitting(true);
     setError('');
 
-    const formspreeId = import.meta.env.VITE_FORMSPREE_FORM_ID;
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
-    if (!formspreeId || formspreeId === 'your_form_id_here') {
+    if (!accessKey) {
       setError('Contact form is not configured yet. Please contact us directly at tfgallery0@gmail.com or call 0321 8991429.');
       setIsSubmitting(false);
       return;
     }
 
     try {
-      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          access_key: accessKey,
           name: form.name,
           email: form.email,
           subject: form.subject,
           message: form.message,
-          _replyto: form.email,
+          from_name: 'The Furniture Gallery Website',
         }),
       });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (data.success) {
         setSubmitted(true);
         setForm({ name: '', email: '', subject: '', message: '' });
       } else {

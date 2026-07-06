@@ -15,6 +15,7 @@ const HERO_IMAGES = [
   `${BASE}images/hero/hero_1.png`,
   `${BASE}Minimal Furniture.png`,
   `${BASE}Minimal Furniture (1).png`,
+  `${BASE}Minimal Furniture (4).png`,
 ];
 
 const TESTIMONIALS = [
@@ -466,7 +467,7 @@ function NewsletterSection() {
   return (
     <section className="newsletter-section">
       <div className="newsletter-section__bg">
-        <img src={`${import.meta.env.BASE_URL}images/newsletter.jpg`} alt="" aria-hidden="true" />
+        <img src={`${import.meta.env.BASE_URL}Minimal Furniture (8).png`} alt="" aria-hidden="true" />
         <div className="newsletter-section__overlay" />
       </div>
       <motion.div

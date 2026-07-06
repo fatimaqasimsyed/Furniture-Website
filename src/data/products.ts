@@ -30,6 +30,7 @@ export const products: Product[] = [
   // ===== BEDS =====
   {
     id: 1,
+    sku: 'BS01',
     name: 'Luxury White & Gold Bed Set',
     price: 185000,
     category: 'Beds',
@@ -47,6 +48,7 @@ export const products: Product[] = [
   },
   {
     id: 2,
+    sku: 'BS02',
     name: 'Classic Dark Wood Bedroom Set',
     price: 165000,
     category: 'Beds',
@@ -62,6 +64,7 @@ export const products: Product[] = [
   },
   {
     id: 3,
+    sku: 'BS03',
     name: 'Carved Wooden Bed with Tufted Headboard',
     price: 145000,
     category: 'Beds',
@@ -77,6 +80,7 @@ export const products: Product[] = [
   },
   {
     id: 4,
+    sku: 'BS04',
     name: 'Panel Design Dark Wood Bed',
     price: 135000,
     category: 'Beds',
@@ -92,6 +96,7 @@ export const products: Product[] = [
   },
   {
     id: 5,
+    sku: 'BS05',
     name: 'Hand Carved Traditional Bed Set',
     price: 155000,
     category: 'Beds',
@@ -108,6 +113,7 @@ export const products: Product[] = [
   },
   {
     id: 6,
+    sku: 'BS06',
     name: 'Modern Channel Tufted Bed',
     price: 125000,
     category: 'Beds',
@@ -123,6 +129,7 @@ export const products: Product[] = [
   },
   {
     id: 7,
+    sku: 'BS07',
     name: 'Silver & Black Luxury Bed',
     price: 195000,
     category: 'Beds',
@@ -139,6 +146,7 @@ export const products: Product[] = [
   },
   {
     id: 8,
+    sku: 'BS08',
     name: 'Royal Gold & White Bed',
     price: 205000,
     category: 'Beds',
@@ -157,6 +165,7 @@ export const products: Product[] = [
   // ===== SINGLE SOFAS =====
   {
     id: 9,
+    sku: 'SS01',
     name: 'Classic Gold Frame Sofa',
     price: 95000,
     category: 'Single Sofas',
@@ -172,6 +181,7 @@ export const products: Product[] = [
   },
   {
     id: 10,
+    sku: 'SS02',
     name: 'Royal Gold Sofa Set',
     price: 110000,
     category: 'Single Sofas',
@@ -187,6 +197,7 @@ export const products: Product[] = [
   },
   {
     id: 11,
+    sku: 'SS03',
     name: 'Classic Green Velvet Sofa',
     price: 85000,
     category: 'Single Sofas',
@@ -203,6 +214,7 @@ export const products: Product[] = [
   },
   {
     id: 12,
+    sku: 'SS04',
     name: 'Classic Gold Accent Sofa',
     price: 78000,
     category: 'Single Sofas',
@@ -218,6 +230,7 @@ export const products: Product[] = [
   },
   {
     id: 13,
+    sku: 'SF01',
     name: 'Cream & Gold Complete Sofa Set',
     price: 185000,
     category: 'Sofa Sets',
@@ -234,6 +247,7 @@ export const products: Product[] = [
   },
   {
     id: 14,
+    sku: 'SF02',
     name: 'Silver & White Luxury Sofa Set',
     price: 195000,
     category: 'Sofa Sets',
@@ -250,6 +264,7 @@ export const products: Product[] = [
   },
   {
     id: 15,
+    sku: 'SF03',
     name: 'Navy Blue Royal Sofa Set',
     price: 198000,
     category: 'Sofa Sets',
@@ -265,6 +280,7 @@ export const products: Product[] = [
   },
   {
     id: 16,
+    sku: 'SF04',
     name: 'Cream & Gold Sofa Set',
     price: 175000,
     category: 'Sofa Sets',
@@ -280,6 +296,7 @@ export const products: Product[] = [
   },
   {
     id: 17,
+    sku: 'SF05',
     name: 'Beige & Gold Living Room Set',
     price: 165000,
     category: 'Sofa Sets',
@@ -295,6 +312,7 @@ export const products: Product[] = [
   },
   {
     id: 19,
+    sku: 'SF06',
     name: 'White & Dark Wood Sofa Set',
     price: 148000,
     category: 'Sofa Sets',
@@ -312,6 +330,7 @@ export const products: Product[] = [
   // ===== NEW SOFA SETS =====
   {
     id: 47,
+    sku: 'SF07',
     name: 'Luxury Sofa Set Collection',
     price: 195000,
     category: 'Sofa Sets',
@@ -328,6 +347,7 @@ export const products: Product[] = [
   },
   {
     id: 48,
+    sku: 'SF08',
     name: 'Designer Sofa Set',
     price: 185000,
     category: 'Sofa Sets',
@@ -344,6 +364,7 @@ export const products: Product[] = [
   },
   {
     id: 49,
+    sku: 'SF09',
     name: 'Premium Sofa Set',
     price: 175000,
     category: 'Sofa Sets',
@@ -360,6 +381,7 @@ export const products: Product[] = [
   },
   {
     id: 50,
+    sku: 'SF10',
     name: 'Classic Sofa Set',
     price: 165000,
     category: 'Sofa Sets',
@@ -376,6 +398,7 @@ export const products: Product[] = [
   },
   {
     id: 51,
+    sku: 'SF11',
     name: 'Elegant Living Room Set',
     price: 195000,
     category: 'Sofa Sets',
@@ -392,6 +415,7 @@ export const products: Product[] = [
   },
   {
     id: 52,
+    sku: 'SF12',
     name: 'Royal Sofa Collection',
     price: 205000,
     category: 'Sofa Sets',
@@ -408,6 +432,7 @@ export const products: Product[] = [
   },
   {
     id: 53,
+    sku: 'SF13',
     name: 'Contemporary Sofa Set',
     price: 185000,
     category: 'Sofa Sets',
@@ -424,6 +449,7 @@ export const products: Product[] = [
   },
   {
     id: 54,
+    sku: 'SF14',
     name: 'Luxury Sofa Set Premium',
     price: 215000,
     category: 'Sofa Sets',
@@ -440,6 +466,7 @@ export const products: Product[] = [
   },
   {
     id: 55,
+    sku: 'SF15',
     name: 'Executive Sofa Set',
     price: 198000,
     category: 'Sofa Sets',
@@ -458,6 +485,7 @@ export const products: Product[] = [
   // ===== SINGLE SOFAS =====
   {
     id: 56,
+    sku: 'SS05',
     name: 'Single Luxury Sofa',
     price: 85000,
     category: 'Single Sofas',
@@ -474,6 +502,7 @@ export const products: Product[] = [
   },
   {
     id: 57,
+    sku: 'SS06',
     name: 'Designer Single Sofa',
     price: 78000,
     category: 'Single Sofas',
@@ -490,6 +519,7 @@ export const products: Product[] = [
   },
   {
     id: 58,
+    sku: 'SS07',
     name: 'Classic Single Sofa',
     price: 72000,
     category: 'Single Sofas',
@@ -506,6 +536,7 @@ export const products: Product[] = [
   },
   {
     id: 59,
+    sku: 'SS08',
     name: 'Premium Single Chair',
     price: 88000,
     category: 'Single Sofas',
@@ -522,6 +553,7 @@ export const products: Product[] = [
   },
   {
     id: 60,
+    sku: 'SS09',
     name: 'Elegant Single Sofa',
     price: 82000,
     category: 'Single Sofas',
@@ -538,6 +570,7 @@ export const products: Product[] = [
   },
   {
     id: 61,
+    sku: 'SS10',
     name: 'Modern Single Sofa',
     price: 75000,
     category: 'Single Sofas',
@@ -554,6 +587,7 @@ export const products: Product[] = [
   },
   {
     id: 62,
+    sku: 'SS11',
     name: 'Royal Blue 2-Seater Sofa',
     price: 95000,
     category: 'Single Sofas',
@@ -570,6 +604,7 @@ export const products: Product[] = [
   },
   {
     id: 63,
+    sku: 'SS12',
     name: 'Contemporary Single Sofa',
     price: 79000,
     category: 'Single Sofas',
@@ -586,6 +621,7 @@ export const products: Product[] = [
   },
   {
     id: 64,
+    sku: 'SS13',
     name: 'Luxury Single Chair',
     price: 92000,
     category: 'Single Sofas',
@@ -602,6 +638,7 @@ export const products: Product[] = [
   },
   {
     id: 65,
+    sku: 'SS14',
     name: 'Designer Single Chair',
     price: 86000,
     category: 'Single Sofas',
@@ -618,6 +655,7 @@ export const products: Product[] = [
   },
   {
     id: 66,
+    sku: 'SS15',
     name: 'Classic Wicker Daybed Sofa',
     price: 73000,
     category: 'Single Sofas',
@@ -634,6 +672,7 @@ export const products: Product[] = [
   },
   {
     id: 67,
+    sku: 'SS16',
     name: 'Premium Single Sofa Chair',
     price: 89000,
     category: 'Single Sofas',
@@ -650,6 +689,7 @@ export const products: Product[] = [
   },
   {
     id: 68,
+    sku: 'SS17',
     name: 'Elegant Single Chair',
     price: 81000,
     category: 'Single Sofas',
@@ -666,6 +706,7 @@ export const products: Product[] = [
   },
   {
     id: 69,
+    sku: 'SS18',
     name: 'Modern Single Chair',
     price: 76000,
     category: 'Single Sofas',
@@ -682,6 +723,7 @@ export const products: Product[] = [
   },
   {
     id: 70,
+    sku: 'SF16',
     name: 'Royal Green Sofa Set with Chair',
     price: 98000,
     category: 'Sofa Sets',
@@ -700,6 +742,7 @@ export const products: Product[] = [
   // ===== DRESSING TABLES =====
   {
     id: 20,
+    sku: 'DT01',
     name: 'Gold & White Luxury Dressing Table',
     price: 95000,
     category: 'Storage',
@@ -716,6 +759,7 @@ export const products: Product[] = [
   },
   {
     id: 21,
+    sku: 'DT02',
     name: 'Silver Designer Dressing Table',
     price: 105000,
     category: 'Storage',
@@ -734,6 +778,7 @@ export const products: Product[] = [
   // ===== CHAIRS =====
   {
     id: 22,
+    sku: 'DC01',
     name: 'Royal Bridal Throne Chairs',
     price: 75000,
     category: 'Decor',
@@ -752,6 +797,7 @@ export const products: Product[] = [
   // ===== NEW ARRIVALS - BEDS FROM IMAGES 2 =====
   {
     id: 23,
+    sku: 'BS01',
     name: 'Classic Wooden Bed',
     price: 165000,
     category: 'Beds',
@@ -768,6 +814,7 @@ export const products: Product[] = [
   },
   {
     id: 24,
+    sku: 'BS02',
     name: 'Modern Designer Bed',
     price: 175000,
     category: 'Beds',
@@ -784,6 +831,7 @@ export const products: Product[] = [
   },
   {
     id: 25,
+    sku: 'BS03',
     name: 'Elegant Bed Set',
     price: 155000,
     category: 'Beds',
@@ -800,6 +848,7 @@ export const products: Product[] = [
   },
   {
     id: 26,
+    sku: 'BS04',
     name: 'Luxury Bedroom Suite',
     price: 185000,
     category: 'Beds',
@@ -816,6 +865,7 @@ export const products: Product[] = [
   },
   {
     id: 27,
+    sku: 'BS05',
     name: 'Contemporary Bed Frame',
     price: 145000,
     category: 'Beds',
@@ -832,6 +882,7 @@ export const products: Product[] = [
   },
   {
     id: 28,
+    sku: 'BS06',
     name: 'Premium Carved Bed',
     price: 195000,
     category: 'Beds',
@@ -848,6 +899,7 @@ export const products: Product[] = [
   },
   {
     id: 29,
+    sku: 'BS07',
     name: 'Royal Panel Bed',
     price: 175000,
     category: 'Beds',
@@ -864,6 +916,7 @@ export const products: Product[] = [
   },
   {
     id: 30,
+    sku: 'BS08',
     name: 'Stylish Bedroom Set',
     price: 165000,
     category: 'Beds',
@@ -880,6 +933,7 @@ export const products: Product[] = [
   },
   {
     id: 31,
+    sku: 'BS09',
     name: 'Classic Wooden Bedroom',
     price: 155000,
     category: 'Beds',
@@ -896,6 +950,7 @@ export const products: Product[] = [
   },
   {
     id: 32,
+    sku: 'BS10',
     name: 'Designer Bed Collection',
     price: 185000,
     category: 'Beds',
@@ -912,6 +967,7 @@ export const products: Product[] = [
   },
   {
     id: 33,
+    sku: 'BS11',
     name: 'Modern Upholstered Bed',
     price: 175000,
     category: 'Beds',
@@ -928,6 +984,7 @@ export const products: Product[] = [
   },
   {
     id: 34,
+    sku: 'BS12',
     name: 'Elegant Wood Bed',
     price: 165000,
     category: 'Beds',
@@ -944,6 +1001,7 @@ export const products: Product[] = [
   },
   {
     id: 35,
+    sku: 'BS13',
     name: 'Contemporary Bedroom Set',
     price: 195000,
     category: 'Beds',
@@ -960,6 +1018,7 @@ export const products: Product[] = [
   },
   {
     id: 36,
+    sku: 'BS14',
     name: 'Luxury Panel Bed',
     price: 185000,
     category: 'Beds',
@@ -976,6 +1035,7 @@ export const products: Product[] = [
   },
   {
     id: 37,
+    sku: 'BS15',
     name: 'Premium Bedroom Suite',
     price: 205000,
     category: 'Beds',
@@ -992,6 +1052,7 @@ export const products: Product[] = [
   },
   {
     id: 38,
+    sku: 'BS16',
     name: 'Royal Carved Bed',
     price: 195000,
     category: 'Beds',
@@ -1008,6 +1069,7 @@ export const products: Product[] = [
   },
   {
     id: 39,
+    sku: 'BS17',
     name: 'Designer Bedroom Collection',
     price: 185000,
     category: 'Beds',
@@ -1024,6 +1086,7 @@ export const products: Product[] = [
   },
   {
     id: 40,
+    sku: 'BS18',
     name: 'Modern Luxury Bed',
     price: 175000,
     category: 'Beds',
@@ -1040,6 +1103,7 @@ export const products: Product[] = [
   },
   {
     id: 41,
+    sku: 'BS19',
     name: 'Classic Bedroom Suite',
     price: 165000,
     category: 'Beds',
@@ -1056,6 +1120,7 @@ export const products: Product[] = [
   },
   {
     id: 42,
+    sku: 'BS20',
     name: 'Elegant Designer Bed',
     price: 195000,
     category: 'Beds',
@@ -1072,6 +1137,7 @@ export const products: Product[] = [
   },
   {
     id: 43,
+    sku: 'BS21',
     name: 'Premium Wooden Bed',
     price: 185000,
     category: 'Beds',
@@ -1088,6 +1154,7 @@ export const products: Product[] = [
   },
   {
     id: 44,
+    sku: 'BS22',
     name: 'Luxury Bedroom Set',
     price: 205000,
     category: 'Beds',
@@ -1104,6 +1171,7 @@ export const products: Product[] = [
   },
   {
     id: 45,
+    sku: 'BS23',
     name: 'Contemporary Carved Bed',
     price: 195000,
     category: 'Beds',
@@ -1120,6 +1188,7 @@ export const products: Product[] = [
   },
   {
     id: 46,
+    sku: 'BS24',
     name: 'Royal Bedroom Collection',
     price: 215000,
     category: 'Beds',
@@ -1138,6 +1207,7 @@ export const products: Product[] = [
   // ===== ADDITIONAL DRESSING TABLES =====
   {
     id: 71,
+    sku: 'DT03',
     name: 'Classic Dressing Table',
     price: 85000,
     category: 'Storage',
@@ -1154,6 +1224,7 @@ export const products: Product[] = [
   },
   {
     id: 72,
+    sku: 'DT04',
     name: 'Modern Dressing Table',
     price: 92000,
     category: 'Storage',
@@ -1170,6 +1241,7 @@ export const products: Product[] = [
   },
   {
     id: 73,
+    sku: 'DT05',
     name: 'Elegant Vanity Table',
     price: 88000,
     category: 'Storage',
@@ -1186,6 +1258,7 @@ export const products: Product[] = [
   },
   {
     id: 74,
+    sku: 'DT06',
     name: 'Designer Dressing Table',
     price: 98000,
     category: 'Storage',
@@ -1202,6 +1275,7 @@ export const products: Product[] = [
   },
   {
     id: 75,
+    sku: 'DT07',
     name: 'Premium Vanity Set',
     price: 95000,
     category: 'Storage',
@@ -1220,6 +1294,7 @@ export const products: Product[] = [
   // ===== CHAIRS =====
   {
     id: 76,
+    sku: 'OF01',
     name: 'Executive Office Chair',
     price: 35000,
     category: 'Office',
@@ -1236,6 +1311,7 @@ export const products: Product[] = [
   },
   {
     id: 77,
+    sku: 'DC02',
     name: 'Modern Accent Chair',
     price: 42000,
     category: 'Decor',
@@ -1252,6 +1328,7 @@ export const products: Product[] = [
   },
   {
     id: 78,
+    sku: 'DC03',
     name: 'Classic Wooden Chair',
     price: 38000,
     category: 'Decor',
@@ -1270,6 +1347,7 @@ export const products: Product[] = [
   // ===== TABLES =====
   {
     id: 79,
+    sku: 'TB01',
     name: 'Luxury Dining Table Set',
     price: 185000,
     category: 'Tables',
@@ -1286,6 +1364,7 @@ export const products: Product[] = [
   },
   {
     id: 80,
+    sku: 'TB02',
     name: 'Modern Dining Set',
     price: 175000,
     category: 'Tables',
@@ -1302,6 +1381,7 @@ export const products: Product[] = [
   },
   {
     id: 81,
+    sku: 'TB03',
     name: 'Classic Dining Table',
     price: 165000,
     category: 'Tables',
@@ -1318,6 +1398,7 @@ export const products: Product[] = [
   },
   {
     id: 82,
+    sku: 'TB04',
     name: 'Designer Coffee Table',
     price: 65000,
     category: 'Tables',
@@ -1334,6 +1415,7 @@ export const products: Product[] = [
   },
   {
     id: 83,
+    sku: 'TB05',
     name: 'Executive Office Desk',
     price: 45000,
     category: 'Tables',
@@ -1350,6 +1432,7 @@ export const products: Product[] = [
   },
   {
     id: 84,
+    sku: 'TB06',
     name: 'Contemporary Center Table',
     price: 55000,
     category: 'Tables',
@@ -1368,6 +1451,7 @@ export const products: Product[] = [
   // ===== BEDSIDE TABLES =====
   {
     id: 85,
+    sku: 'BT01',
     name: 'Classic Bedside Table',
     price: 28000,
     category: 'Bedside Tables',
@@ -1384,6 +1468,7 @@ export const products: Product[] = [
   },
   {
     id: 86,
+    sku: 'BT02',
     name: 'Modern Nightstand',
     price: 32000,
     category: 'Bedside Tables',
@@ -1400,6 +1485,7 @@ export const products: Product[] = [
   },
   {
     id: 87,
+    sku: 'BT03',
     name: 'Elegant Bedside Cabinet',
     price: 35000,
     category: 'Bedside Tables',
@@ -1416,6 +1502,7 @@ export const products: Product[] = [
   },
   {
     id: 88,
+    sku: 'BT04',
     name: 'Designer Nightstand',
     price: 38000,
     category: 'Bedside Tables',
@@ -1432,6 +1519,7 @@ export const products: Product[] = [
   },
   {
     id: 89,
+    sku: 'BT05',
     name: 'Premium Bedside Table',
     price: 34000,
     category: 'Bedside Tables',
@@ -1448,6 +1536,7 @@ export const products: Product[] = [
   },
   {
     id: 90,
+    sku: 'BT06',
     name: 'Contemporary Nightstand',
     price: 30000,
     category: 'Bedside Tables',
@@ -1464,6 +1553,7 @@ export const products: Product[] = [
   },
   {
     id: 91,
+    sku: 'BT07',
     name: 'Luxury Bedside Cabinet',
     price: 40000,
     category: 'Bedside Tables',
@@ -1482,6 +1572,7 @@ export const products: Product[] = [
   // ===== CONSOLES =====
   {
     id: 92,
+    sku: 'CS01',
     name: 'Modern Console Table',
     price: 75000,
     category: 'Consoles',
@@ -1498,6 +1589,7 @@ export const products: Product[] = [
   },
   {
     id: 93,
+    sku: 'CS02',
     name: 'Designer Console Table',
     price: 85000,
     category: 'Consoles',
@@ -1514,6 +1606,7 @@ export const products: Product[] = [
   },
   {
     id: 94,
+    sku: 'CS03',
     name: 'Luxury Console Set',
     price: 95000,
     category: 'Consoles',
@@ -1532,6 +1625,7 @@ export const products: Product[] = [
   // ===== RACKS =====
   {
     id: 95,
+    sku: 'RK01',
     name: 'Modern Storage Rack',
     price: 55000,
     category: 'Racks',
@@ -1548,6 +1642,7 @@ export const products: Product[] = [
   },
   {
     id: 96,
+    sku: 'RK02',
     name: 'Display Rack',
     price: 48000,
     category: 'Racks',
@@ -1566,6 +1661,7 @@ export const products: Product[] = [
   // ===== CUPBOARDS =====
   {
     id: 97,
+    sku: 'DT08',
     name: 'Modern Wardrobe',
     price: 145000,
     category: 'Storage',
@@ -1582,6 +1678,7 @@ export const products: Product[] = [
   },
   {
     id: 98,
+    sku: 'DT09',
     name: 'Designer Wardrobe',
     price: 165000,
     category: 'Storage',
@@ -1598,6 +1695,7 @@ export const products: Product[] = [
   },
   {
     id: 99,
+    sku: 'DT10',
     name: 'Classic Cupboard',
     price: 135000,
     category: 'Storage',
@@ -1614,6 +1712,7 @@ export const products: Product[] = [
   },
   {
     id: 100,
+    sku: 'DT11',
     name: 'Contemporary Wardrobe',
     price: 155000,
     category: 'Storage',
@@ -1630,6 +1729,7 @@ export const products: Product[] = [
   },
   {
     id: 101,
+    sku: 'DT12',
     name: 'Elegant Storage Cabinet',
     price: 148000,
     category: 'Storage',
@@ -1646,6 +1746,7 @@ export const products: Product[] = [
   },
   {
     id: 102,
+    sku: 'DT13',
     name: 'Luxury Wardrobe Set',
     price: 185000,
     category: 'Storage',
@@ -1662,6 +1763,7 @@ export const products: Product[] = [
   },
   {
     id: 103,
+    sku: 'DT14',
     name: 'Premium Storage Cupboard',
     price: 175000,
     category: 'Storage',

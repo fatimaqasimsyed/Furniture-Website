@@ -122,6 +122,14 @@
   color: var(--accent);
 }
 
+.wishlist-card__sku {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
 .wishlist-card__material {
   font-size: 0.775rem;
   color: var(--text-secondary);

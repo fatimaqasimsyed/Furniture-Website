@@ -85,6 +85,7 @@ export default function ProductCard({ product, onQuickView }: Props) {
       <Link to={`/product/${product.id}`} className="product-card__info">
         <p className="product-card__category">{product.category}</p>
         <h3 className="product-card__name">{product.name}</h3>
+        <p className="product-card__sku">SKU: {product.sku}</p>
         <div className="product-card__price-row">
           <span className="product-card__made-to-order">Made to Order</span>
         </div>

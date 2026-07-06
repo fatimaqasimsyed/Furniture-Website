@@ -1,5 +1,6 @@
 export interface Product {
   id: number;
+  sku: string; // Unique product ID (e.g., BS01, BT01)
   name: string;
   price: number;
   originalPrice?: number;

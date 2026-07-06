@@ -105,6 +105,7 @@ export default function Cart() {
                       <Link to={`/product/${item.product.id}`}>
                         <h3>{item.product.name}</h3>
                       </Link>
+                      <p className="cart-page__item-sku">SKU: {item.product.sku}</p>
                       <p>{item.product.category}</p>
                       <p className="cart-page__item-material">{item.product.material}</p>
                       {item.selectedColor && (
@@ -179,8 +180,8 @@ export default function Cart() {
               </a>
             </div>
 
-            <Link to="/contact" className="btn-outline cart-page__contact-form-btn">
-              <span>Or Fill Contact Form</span>
+            <Link to="/checkout" className="btn-outline cart-page__contact-form-btn">
+              <span>Fill Order Inquiry Form</span>
             </Link>
 
             <div className="cart-page__secure">
