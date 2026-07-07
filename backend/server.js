@@ -1,7 +1,7 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import sequelize from './config/database.js';
 import authRoutes from './routes/auth.js';
 import productRoutes from './routes/products.js';
 
@@ -21,25 +21,20 @@ app.use('/api/products', productRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'TFG Backend API is running' });
+  res.json({ status: 'OK', message: 'TFG Backend API is running', database: 'PostgreSQL' });
 });
 
-// Connect to MongoDB with additional options
+// Connect to PostgreSQL and sync models
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 45000,
-    });
-    console.log('✅ Connected to MongoDB');
+    await sequelize.authenticate();
+    console.log('✅ Connected to PostgreSQL');
+    
+    // Sync database (create tables if they don't exist)
+    await sequelize.sync({ alter: true });
+    console.log('✅ Database synced');
   } catch (error) {
-    console.error('❌ MongoDB connection error:', error.message);
-    console.log('\n🔧 Troubleshooting:');
-    console.log('1. Check your internet connection');
-    console.log('2. Verify MongoDB Atlas IP whitelist (0.0.0.0/0 for allow all)');
-    console.log('3. Check if your network/firewall blocks MongoDB ports');
-    console.log('4. Try using a VPN if connection is blocked');
-    console.log('5. Verify MongoDB credentials are correct\n');
+    console.error('❌ Database connection error:', error.message);
     process.exit(1);
   }
 };
@@ -49,7 +44,7 @@ connectDB().then(() => {
   app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
     console.log(`📍 API available at http://localhost:${PORT}/api`);
-    console.log(`📊 MongoDB: Connected to tfg-furniture database`);
+    console.log(`📊 Database: PostgreSQL`);
   });
 });
 

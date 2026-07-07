@@ -1,102 +1,98 @@
-import mongoose from 'mongoose';
+import { DataTypes } from 'sequelize';
+import sequelize from '../config/database.js';
 
-const productSchema = new mongoose.Schema({
+const Product = sequelize.define('Product', {
   id: {
-    type: Number,
-    required: true,
-    unique: true
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
   },
   sku: {
-    type: String,
-    required: true,
+    type: DataTypes.STRING,
+    allowNull: false,
     unique: true
   },
   name: {
-    type: String,
-    required: true
+    type: DataTypes.STRING,
+    allowNull: false
   },
   price: {
-    type: Number,
-    default: 0
+    type: DataTypes.FLOAT,
+    defaultValue: 0
   },
   category: {
-    type: String,
-    required: true,
-    enum: [
-      'Bed Sets',
-      'Single Sofas',
-      'Sofa Sets',
-      'Dressing Tables',
-      'Tables',
-      'Bedside Tables',
-      'Consoles',
-      'Racks',
-      'Decor',
-      'Office',
-      'Wardrobes'
-    ]
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      isIn: [[
+        'Bed Sets',
+        'Single Sofas',
+        'Sofa Sets',
+        'Dressing Tables',
+        'Tables',
+        'Bedside Tables',
+        'Consoles',
+        'Racks',
+        'Decor',
+        'Office',
+        'Wardrobes'
+      ]]
+    }
   },
   categorySlug: {
-    type: String,
-    required: true
+    type: DataTypes.STRING,
+    allowNull: false
   },
   image: {
-    type: String,
-    required: true
+    type: DataTypes.STRING,
+    allowNull: false
   },
-  images: [{
-    type: String
-  }],
+  images: {
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    defaultValue: []
+  },
   description: {
-    type: String,
-    required: true
+    type: DataTypes.TEXT,
+    allowNull: false
   },
   material: {
-    type: String,
-    default: 'Premium Quality Materials'
+    type: DataTypes.STRING,
+    defaultValue: 'Premium Quality Materials'
   },
   dimensions: {
-    type: String,
-    default: 'Custom Sizes Available'
+    type: DataTypes.STRING,
+    defaultValue: 'Custom Sizes Available'
   },
   rating: {
-    type: Number,
-    default: 5.0
+    type: DataTypes.FLOAT,
+    defaultValue: 5.0
   },
   reviewCount: {
-    type: Number,
-    default: 0
+    type: DataTypes.INTEGER,
+    defaultValue: 0
   },
   badge: {
-    type: String,
-    enum: ['New', 'Bestseller', 'Limited', null],
-    default: 'New'
+    type: DataTypes.STRING,
+    validate: {
+      isIn: [['New', 'Bestseller', 'Limited', null, '']]
+    },
+    defaultValue: 'New'
   },
-  tags: [{
-    type: String
-  }],
+  tags: {
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    defaultValue: []
+  },
   inStock: {
-    type: Boolean,
-    default: true
+    type: DataTypes.BOOLEAN,
+    defaultValue: true
   },
   featured: {
-    type: Boolean,
-    default: false
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
   }
+}, {
+  tableName: 'products',
+  timestamps: true
 });
 
-// Update the updatedAt timestamp before saving
-productSchema.pre('save', function(next) {
-  this.updatedAt = Date.now();
-  next();
-});
-
-export default mongoose.model('Product', productSchema);
+export default Product;
