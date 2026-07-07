@@ -11,7 +11,7 @@ import type { Product, FilterState, SortOption } from '../types';
 import './Shop.css';
 
 const PRICE_MAX = 250000;
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://furniture-website-production.up.railway.app/api';
 
 export default function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();

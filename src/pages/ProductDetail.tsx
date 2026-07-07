@@ -9,7 +9,7 @@ import ProductCard from '../components/ProductCard';
 import type { Product } from '../types';
 import './ProductDetail.css';
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://furniture-website-production.up.railway.app/api';
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();

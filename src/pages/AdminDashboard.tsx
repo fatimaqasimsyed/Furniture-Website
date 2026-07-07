@@ -53,7 +53,7 @@ export default function AdminDashboard() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/products');
+      const response = await fetch('https://furniture-website-production.up.railway.app/api/products');
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -72,7 +72,7 @@ export default function AdminDashboard() {
   const generateSKU = async () => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:3000/api/products/generate-sku', {
+      const response = await fetch('https://furniture-website-production.up.railway.app/api/products/generate-sku', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ export default function AdminDashboard() {
       const formDataUpload = new FormData();
       formDataUpload.append('image', file);
 
-      const response = await fetch('http://localhost:3000/api/products/upload-image', {
+      const response = await fetch('https://furniture-website-production.up.railway.app/api/products/upload-image', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -130,8 +130,8 @@ export default function AdminDashboard() {
     try {
       const token = localStorage.getItem('adminToken');
       const url = editingProduct 
-        ? `http://localhost:3000/api/products/${editingProduct.id}`
-        : 'http://localhost:3000/api/products';
+        ? `https://furniture-website-production.up.railway.app/api/products/${editingProduct.id}`
+        : 'https://furniture-website-production.up.railway.app/api/products';
       
       const method = editingProduct ? 'PUT' : 'POST';
 
@@ -167,7 +167,7 @@ export default function AdminDashboard() {
 
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:3000/api/products/${id}`, {
+      const response = await fetch(`https://furniture-website-production.up.railway.app/api/products/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
