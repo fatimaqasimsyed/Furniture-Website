@@ -21,7 +21,12 @@ app.use('/api/products', productRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'TFG Backend API is running', database: 'PostgreSQL' });
+  res.json({ 
+    status: 'OK', 
+    message: 'TFG Backend API is running', 
+    database: 'PostgreSQL',
+    timestamp: new Date().toISOString()
+  });
 });
 
 // Connect to PostgreSQL and sync models
