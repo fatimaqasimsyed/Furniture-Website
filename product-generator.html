@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFG Product Code Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f5f0 0%, #e8e4da 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #D4C4B0;
+            box-shadow: 0 0 0 3px rgba(212, 196, 176, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .btn {
+            background: #D4C4B0;
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background: #c4b4a0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 196, 176, 0.3);
+        }
+        
+        .output {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .output.show {
+            display: block;
+        }
+        
+        .output h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .copy-btn {
+            background: #4CAF50;
+            margin-top: 10px;
+            width: auto;
+            padding: 10px 24px;
+        }
+        
+        .copy-btn:hover {
+            background: #45a049;
+        }
+        
+        .instructions {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .instructions h3 {
+            color: #856404;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        .instructions li {
+            margin-bottom: 5px;
+        }
+        
+        .image-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .image-input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .image-input-row input {
+            flex: 1;
+        }
+        
+        .add-image-btn, .remove-image-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .add-image-btn {
+            background: #4CAF50;
+            color: white;
+            width: 100%;
+            margin-top: 5px;
+        }
+        
+        .remove-image-btn {
+            background: #f44336;
+            color: white;
+        }
+        
+        .success-msg {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .success-msg.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛋️ TFG Product Code Generator</h1>
+        <p class="subtitle">Generate product code to add to your website</p>
+        
+        <div class="instructions">
+            <h3>📝 How to Use:</h3>
+            <ol>
+                <li>Fill in all the product details below</li>
+                <li>Click "Generate Code"</li>
+                <li>Click "Copy Code"</li>
+                <li>Open <code>src/data/products.ts</code></li>
+                <li>Find the end of the products array (before the last <code>];</code>)</li>
+                <li>Paste the code and add a comma before it</li>
+                <li>Save the file!</li>
+            </ol>
+        </div>
+        
+        <form id="productForm">
+            <div class="form-group">
+                <label for="category">Category *</label>
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Bed Sets">Bed Sets</option>
+                    <option value="Single Sofas">Single Sofas</option>
+                    <option value="Sofa Sets">Sofa Sets</option>
+                    <option value="Dressing Tables">Dressing Tables</option>
+                    <option value="Tables">Tables</option>
+                    <option value="Bedside Tables">Bedside Tables</option>
+                    <option value="Consoles">Consoles</option>
+                    <option value="Racks">Racks</option>
+                    <option value="Decor">Decor</option>
+                    <option value="Office">Office</option>
+                    <option value="Wardrobes">Wardrobes</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="sku">SKU Code *</label>
+                <input type="text" id="sku" placeholder="e.g., BS25, SS19, DC04" required>
+                <small style="color: #666; font-size: 12px;">Format: BS (Bed Sets), SS (Single Sofas), SF (Sofa Sets), DT (Dressing Tables), TB (Tables), BT (Bedside Tables), CS (Consoles), RK (Racks), DC (Decor), OF (Office), WR (Wardrobes)</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Product Name *</label>
+                <input type="text" id="name" placeholder="e.g., Luxury King Bed with Headboard" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Description *</label>
+                <textarea id="description" placeholder="Describe the product features, materials, etc." required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="material">Material *</label>
+                <input type="text" id="material" placeholder="e.g., Solid Wood, Premium Fabric" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="dimensions">Dimensions</label>
+                <input type="text" id="dimensions" placeholder="e.g., 210cm × 180cm × 120cm">
+            </div>
+            
+            <div class="form-group">
+                <label>Product Images * (at least one)</label>
+                <div class="image-inputs" id="imageInputs">
+                    <div class="image-input-row">
+                        <input type="url" class="image-url" placeholder="https://example.com/image.jpg" required>
+                    </div>
+                </div>
+                <button type="button" class="add-image-btn" onclick="addImageInput()">+ Add Another Image</button>
+            </div>
+            
+            <div class="form-group">
+                <label for="featured">Featured Product?</label>
+                <select id="featured">
+                    <option value="false">No</option>
+                    <option value="true">Yes (Show on homepage)</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn">🚀 Generate Code</button>
+        </form>
+        
+        <div class="output" id="output">
+            <h3>📋 Generated Code:</h3>
+            <div class="code-block" id="codeBlock"></div>
+            <button class="btn copy-btn" onclick="copyCode()">📋 Copy Code</button>
+            <div class="success-msg" id="successMsg">✅ Code copied! Now paste it in products.ts</div>
+        </div>
+    </div>
+    
+    <script>
+        let imageCount = 1;
+        
+        function addImageInput() {
+            imageCount++;
+            const container = document.getElementById('imageInputs');
+            const row = document.createElement('div');
+            row.className = 'image-input-row';
+            row.innerHTML = `
+                <input type="url" class="image-url" placeholder="https://example.com/image${imageCount}.jpg">
+                <button type="button" class="remove-image-btn" onclick="removeImageInput(this)">Remove</button>
+            `;
+            container.appendChild(row);
+        }
+        
+        function removeImageInput(button) {
+            button.parentElement.remove();
+        }
+        
+        function getCategorySlug(category) {
+            return category.toLowerCase().replace(/\s+/g, '-');
+        }
+        
+        function getCategoryIcon(category) {
+            const icons = {
+                'Bed Sets': '🛏️',
+                'Single Sofas': '🛋️',
+                'Sofa Sets': '🛋️',
+                'Dressing Tables': '💄',
+                'Tables': '🪑',
+                'Bedside Tables': '🛏️',
+                'Consoles': '📺',
+                'Racks': '🗄️',
+                'Decor': '🎨',
+                'Office': '💼',
+                'Wardrobes': '👔'
+            };
+            return icons[category] || '🛋️';
+        }
+        
+        function generateId() {
+            return Date.now();
+        }
+        
+        document.getElementById('productForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const category = document.getElementById('category').value;
+            const sku = document.getElementById('sku').value.toUpperCase();
+            const name = document.getElementById('name').value;
+            const description = document.getElementById('description').value;
+            const material = document.getElementById('material').value;
+            const dimensions = document.getElementById('dimensions').value || 'Custom Sizes Available';
+            const featured = document.getElementById('featured').value === 'true';
+            
+            const imageInputs = document.querySelectorAll('.image-url');
+            const images = Array.from(imageInputs)
+                .map(input => input.value.trim())
+                .filter(url => url !== '');
+            
+            if (images.length === 0) {
+                alert('Please add at least one image URL!');
+                return;
+            }
+            
+            const categorySlug = getCategorySlug(category);
+            const id = generateId();
+            
+            // Generate tags from name and category
+            const tags = [
+                category.toLowerCase(),
+                ...name.toLowerCase().split(' ').slice(0, 3)
+            ];
+            
+            const productCode = `  {
+    id: ${id},
+    sku: '${sku}',
+    name: '${name}',
+    price: 0, // Made to order
+    category: '${category}',
+    categorySlug: '${categorySlug}',
+    description: '${description}',
+    material: '${material}',
+    dimensions: '${dimensions}',
+    rating: 5.0,
+    reviewCount: 0,
+    badge: 'New',
+    images: [
+${images.map(img => `      '${img}'`).join(',\n')}
+    ],
+    tags: [${tags.map(tag => `'${tag}'`).join(', ')}],
+    inStock: true${featured ? ',\n    featured: true' : ''}
+  }`;
+            
+            document.getElementById('codeBlock').textContent = productCode;
+            document.getElementById('output').classList.add('show');
+            document.getElementById('output').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        function copyCode() {
+            const codeBlock = document.getElementById('codeBlock');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const successMsg = document.getElementById('successMsg');
+                successMsg.classList.add('show');
+                setTimeout(() => {
+                    successMsg.classList.remove('show');
+                }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { SlidersHorizontal, X, ChevronDown, Grid3X3, LayoutList } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { products, categories, MATERIALS } from '../data/products';
+import { products as localProducts, categories, MATERIALS } from '../data/products';
 import { toPKR } from '../utils/currency';
 import ProductCard from '../components/ProductCard';
 import ProductCardSkeleton from '../components/ProductCardSkeleton';
@@ -11,6 +11,7 @@ import type { Product, FilterState, SortOption } from '../types';
 import './Shop.css';
 
 const PRICE_MAX = 250000;
+const API_URL = 'http://localhost:3000/api';
 
 export default function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -18,6 +19,7 @@ export default function Shop() {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [gridView, setGridView] = useState<'grid' | 'list'>('grid');
   const [loading, setLoading] = useState(true);
+  const [apiProducts, setApiProducts] = useState<Product[]>([]);
 
   const [filters, setFilters] = useState<FilterState>({
     category: searchParams.get('category') || '',
@@ -26,6 +28,47 @@ export default function Shop() {
     search: searchParams.get('search') || '',
   });
 
+  // Fetch products from backend API and merge with local products
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`${API_URL}/products`);
+        if (response.ok) {
+          const data = await response.json();
+          setApiProducts(data);
+        }
+      } catch (error) {
+        console.error('Error fetching API products:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+    // Also stop loading after a brief moment for local products
+    const timer = setTimeout(() => setLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Merge local products with API products (API products take precedence if same ID)
+  const allProducts = useMemo(() => {
+    const merged = [...localProducts];
+    
+    // Add API products that don't exist in local products
+    apiProducts.forEach(apiProduct => {
+      const existingIndex = merged.findIndex(p => p.id === apiProduct.id);
+      if (existingIndex >= 0) {
+        // Replace with API version if exists
+        merged[existingIndex] = apiProduct;
+      } else {
+        // Add new product from API
+        merged.push(apiProduct);
+      }
+    });
+    
+    return merged;
+  }, [apiProducts]);
+
   // Sync URL params to filters
   useEffect(() => {
     const cat = searchParams.get('category') || '';
@@ -33,18 +76,11 @@ export default function Shop() {
     setFilters(f => ({ ...f, category: cat, search }));
   }, [searchParams]);
 
-  // Simulate brief loading on mount
-  useEffect(() => {
-    setLoading(true);
-    const t = setTimeout(() => setLoading(false), 500);
-    return () => clearTimeout(t);
-  }, []);
-
   const filteredProducts = useMemo(() => {
-    let result = [...products];
+    let result = [...allProducts];
 
     if (filters.category) {
-      result = result.filter(p => p.categorySlug === filters.category);
+      result = result.filter(p => p.category === filters.category || p.categorySlug === filters.category);
     }
     if (filters.search) {
       let q = filters.search.toLowerCase();
@@ -55,14 +91,14 @@ export default function Shop() {
         p.name.toLowerCase().includes(q) ||
         p.category.toLowerCase().includes(q) ||
         p.description.toLowerCase().includes(q) ||
-        p.sku.toLowerCase().includes(q) ||
-        p.tags.some(t => t.includes(q))
+        p.sku?.toLowerCase().includes(q) ||
+        (p.tags && p.tags.some(t => t.includes(q)))
       );
     }
 
     if (filters.materials.length > 0) {
       result = result.filter(p =>
-        filters.materials.some(m => p.material.toLowerCase().includes(m.toLowerCase()))
+        p.material && filters.materials.some(m => p.material.toLowerCase().includes(m.toLowerCase()))
       );
     }
 
@@ -73,7 +109,7 @@ export default function Shop() {
     }
 
     return result;
-  }, [filters]);
+  }, [filters, allProducts]);
 
   const updateCategory = (slug: string) => {
     const newParams = new URLSearchParams(searchParams);
@@ -152,7 +188,7 @@ export default function Shop() {
                 onClick={() => updateCategory('')}
               >
                 All Products
-                <span>{products.length}</span>
+                <span>{allProducts.length}</span>
               </button>
               {categories.map(cat => (
                 <button
@@ -161,7 +197,7 @@ export default function Shop() {
                   onClick={() => updateCategory(cat.slug)}
                 >
                   <span>{cat.icon} {cat.name}</span>
-                  <span>{products.filter(p => p.categorySlug === cat.slug).length}</span>
+                  <span>{allProducts.filter(p => p.categorySlug === cat.slug).length}</span>
                 </button>
               ))}
             </div>

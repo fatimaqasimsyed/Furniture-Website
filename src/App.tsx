@@ -19,6 +19,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import ShippingPolicies from './pages/ShippingPolicies';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
 
 // Page title map
 const PAGE_TITLES: Record<string, string> = {
@@ -33,6 +35,8 @@ const PAGE_TITLES: Record<string, string> = {
   '/contact': 'Contact | The Furniture Gallery',
   '/blog': 'Blog | The Furniture Gallery',
   '/shipping-policies': 'Shipping & Policies | The Furniture Gallery',
+  '/admin': 'Admin Login | The Furniture Gallery',
+  '/admin/dashboard': 'Admin Dashboard | The Furniture Gallery',
 };
 
 function ScrollToTop() {
@@ -68,11 +72,14 @@ function BackToTop() {
 }
 
 function AppLayout() {
+  const location = useLocation();
+  const isAdminPage = location.pathname.startsWith('/admin');
+
   return (
     <>
       <ScrollToTop />
-      <Navbar />
-      <CartDrawer />
+      {!isAdminPage && <Navbar />}
+      {!isAdminPage && <CartDrawer />}
       <Toast />
       <main>
         <Routes>
@@ -88,12 +95,14 @@ function AppLayout() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/shipping-policies" element={<ShippingPolicies />} />
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      <Footer />
-      <BackToTop />
-      <WhatsAppButton />
+      {!isAdminPage && <Footer />}
+      {!isAdminPage && <BackToTop />}
+      {!isAdminPage && <WhatsAppButton />}
     </>
   );
 }

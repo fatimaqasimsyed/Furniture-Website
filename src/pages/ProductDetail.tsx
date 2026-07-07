@@ -2,19 +2,53 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Heart, ShoppingBag, Star, ChevronLeft, ChevronRight, Share2, Truck, RefreshCw, Shield, Minus, Plus, X, Copy, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { products } from '../data/products';
+import { products as localProducts } from '../data/products';
 import { useApp } from '../context/AppContext';
 import { formatPKR, toPKR } from '../utils/currency';
 import ProductCard from '../components/ProductCard';
 import type { Product } from '../types';
 import './ProductDetail.css';
 
+const API_URL = 'http://localhost:3000/api';
+
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { addToCart, toggleWishlist, isInWishlist, showToast, addRecentlyViewed, state } = useApp();
 
-  const product = products.find(p => p.id === Number(id));
+  const [product, setProduct] = useState<Product | undefined>(undefined);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch product (try API first, fallback to local)
+  useEffect(() => {
+    const fetchProduct = async () => {
+      setLoading(true);
+      
+      // Try to find in local products first
+      const localProduct = localProducts.find(p => p.id === Number(id) || p.id.toString() === id);
+      
+      if (localProduct) {
+        setProduct(localProduct);
+        setLoading(false);
+        return;
+      }
+      
+      // If not found locally, try API
+      try {
+        const response = await fetch(`${API_URL}/products/${id}`);
+        if (response.ok) {
+          const data = await response.json();
+          setProduct(data);
+        }
+      } catch (error) {
+        console.error('Error fetching product:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchProduct();
+  }, [id]);
 
   const [activeImg, setActiveImg] = useState(0);
   const [qty, setQty] = useState(1);
@@ -32,6 +66,14 @@ export default function ProductDetail() {
     }
   }, [id]);
 
+  if (loading) {
+    return (
+      <div className="product-loading">
+        <p>Loading product...</p>
+      </div>
+    );
+  }
+
   if (!product) {
     return (
       <div className="product-not-found">
@@ -42,7 +84,7 @@ export default function ProductDetail() {
   }
 
   const inWishlist = isInWishlist(product.id);
-  const related = products.filter(p => p.categorySlug === product.categorySlug && p.id !== product.id).slice(0, 4);
+  const related = localProducts.filter(p => p.categorySlug === product.categorySlug && p.id !== product.id).slice(0, 4);
 
   const getImgSrc = (index: number) =>
     imgErrors[index]
