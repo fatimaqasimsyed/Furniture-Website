@@ -1,4 +1,5 @@
 import express from 'express';
+import { Op } from 'sequelize';
 import Product from '../models/Product.js';
 import { authenticateAdmin } from '../middleware/auth.js';
 import cloudinary from '../config/cloudinary.js';
@@ -12,7 +13,9 @@ const upload = multer({ storage: multer.memoryStorage() });
 // Get all products (public)
 router.get('/', async (req, res) => {
   try {
-    const products = await Product.find().sort({ createdAt: -1 });
+    const products = await Product.findAll({
+      order: [['createdAt', 'DESC']]
+    });
     res.json(products);
   } catch (error) {
     console.error('Error fetching products:', error);
@@ -23,7 +26,9 @@ router.get('/', async (req, res) => {
 // Get single product (public)
 router.get('/:id', async (req, res) => {
   try {
-    const product = await Product.findOne({ id: req.params.id });
+    const product = await Product.findOne({
+      where: { id: req.params.id }
+    });
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
     }
@@ -65,22 +70,18 @@ router.post('/upload-image', authenticateAdmin, upload.single('image'), async (r
 // Create product (admin only)
 router.post('/', authenticateAdmin, async (req, res) => {
   try {
-    const { id, sku, name, category, image, images, description, featured } = req.body;
+    const { sku, name, category, image, images, description, featured } = req.body;
 
-    // Check if product with same ID or SKU exists
-    const existing = await Product.findOne({ $or: [{ sku }] });
+    // Check if product with same SKU exists
+    const existing = await Product.findOne({ where: { sku } });
     if (existing) {
       return res.status(400).json({ message: 'Product with this SKU already exists' });
     }
 
     // Generate categorySlug from category
     const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
-    
-    // Generate numeric ID
-    const numericId = Date.now();
 
-    const product = new Product({
-      id: numericId,
+    const product = await Product.create({
       sku,
       name,
       price: 0,
@@ -99,11 +100,10 @@ router.post('/', authenticateAdmin, async (req, res) => {
       featured: featured || false
     });
 
-    await product.save();
     res.status(201).json(product);
   } catch (error) {
     console.error('Error creating product:', error);
-    res.status(500).json({ message: 'Failed to create product' });
+    res.status(500).json({ message: 'Failed to create product', error: error.message });
   }
 });
 
@@ -112,14 +112,17 @@ router.put('/:id', authenticateAdmin, async (req, res) => {
   try {
     const { name, category, image, images, description, featured, sku } = req.body;
 
-    const product = await Product.findOne({ id: req.params.id });
+    const product = await Product.findOne({ where: { id: req.params.id } });
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
     }
 
     // Update fields
     if (name) product.name = name;
-    if (category) product.category = category;
+    if (category) {
+      product.category = category;
+      product.categorySlug = category.toLowerCase().replace(/\s+/g, '-');
+    }
     if (image) product.image = image;
     if (images) product.images = images;
     if (description) product.description = description;
@@ -137,14 +140,12 @@ router.put('/:id', authenticateAdmin, async (req, res) => {
 // Delete product (admin only)
 router.delete('/:id', authenticateAdmin, async (req, res) => {
   try {
-    const product = await Product.findOneAndDelete({ id: req.params.id });
+    const product = await Product.findOne({ where: { id: req.params.id } });
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
     }
 
-    // Optionally delete images from Cloudinary here
-    // This requires storing Cloudinary public IDs in the database
-
+    await product.destroy();
     res.json({ message: 'Product deleted successfully' });
   } catch (error) {
     console.error('Error deleting product:', error);
@@ -178,7 +179,15 @@ router.post('/generate-sku', authenticateAdmin, async (req, res) => {
     }
 
     // Find the highest number for this prefix
-    const products = await Product.find({ sku: new RegExp(`^${prefix}`) }).sort({ sku: -1 }).limit(1);
+    const products = await Product.findAll({
+      where: {
+        sku: {
+          [Op.like]: `${prefix}%`
+        }
+      },
+      order: [['sku', 'DESC']],
+      limit: 1
+    });
     
     let nextNumber = 1;
     if (products.length > 0) {
