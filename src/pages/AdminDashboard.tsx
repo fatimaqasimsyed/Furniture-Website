@@ -24,8 +24,8 @@ export default function AdminDashboard() {
   const [uploading, setUploading] = useState(false);
 
   const categories = [
-    'Bed Sets', 'Single Sofas', 'Sofa Sets', 'Dressing Tables',
-    'Tables', 'Bedside Tables', 'Consoles', 'Racks', 'Decor', 'Office', 'Wardrobes'
+    'Beds', 'Single Sofas', 'Sofa Sets', 'Tables',
+    'Bedside Tables', 'Consoles', 'Racks', 'Decor', 'Office', 'Storage'
   ];
 
   const [formData, setFormData] = useState({

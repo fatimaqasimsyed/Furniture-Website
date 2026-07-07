@@ -25,17 +25,16 @@ const Product = sequelize.define('Product', {
     allowNull: false,
     validate: {
       isIn: [[
-        'Bed Sets',
+        'Beds',
         'Single Sofas',
         'Sofa Sets',
-        'Dressing Tables',
         'Tables',
         'Bedside Tables',
         'Consoles',
         'Racks',
         'Decor',
         'Office',
-        'Wardrobes'
+        'Storage'
       ]]
     }
   },

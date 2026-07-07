@@ -160,17 +160,16 @@ router.post('/generate-sku', authenticateAdmin, async (req, res) => {
 
     // Category prefix mapping
     const prefixes = {
-      'Bed Sets': 'BS',
+      'Beds': 'BS',
       'Single Sofas': 'SS',
       'Sofa Sets': 'SF',
-      'Dressing Tables': 'DT',
       'Tables': 'TB',
       'Bedside Tables': 'BT',
       'Consoles': 'CS',
       'Racks': 'RK',
       'Decor': 'DC',
       'Office': 'OF',
-      'Wardrobes': 'WR'
+      'Storage': 'ST'
     };
 
     const prefix = prefixes[category];
